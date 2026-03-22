@@ -1,0 +1,18 @@
+name: idk
+
+on:
+  push:
+      branches:
+        - master
+      tags:
+        - '*'
+
+jobs:
+  idk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: dump github context
+        run: echo '${{ toJson(github) }}'
