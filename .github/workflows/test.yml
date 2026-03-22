@@ -16,3 +16,11 @@ jobs:
 
       - name: dump github context
         run: echo '${{ toJson(github) }}'
+
+      - name: this should run on branch push
+        if: github.ref_type == 'branch'
+        run: echo 'running on branch push'
+
+      - name: this should run on tag push
+        if: github.ref_type == 'tag'
+        run: echo 'running on tag push'
